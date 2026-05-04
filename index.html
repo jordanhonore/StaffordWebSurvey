@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One Taxpayer, One Stafford, One Future | Civic Initiative</title>
+  <meta name="description" content="A community conversation about revenue modernization and fiscal sustainability in Stafford, Texas.">
+  <style>
+    :root {
+      --navy:#183858; --teal:#176978; --gold:#b78023; --light:#f4f7f9; --ink:#1c2733;
+      --soft:#eaf3f7; --cream:#fbf1df; --line:#d5dee5;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color:var(--ink); line-height:1.6; background:#fff; }
+    header { background: linear-gradient(135deg, var(--navy), var(--teal)); color:#fff; padding:80px 20px 70px; }
+    .wrap { max-width:1100px; margin:0 auto; }
+    .eyebrow { color:#f0d39b; font-weight:700; letter-spacing:.1em; text-transform:uppercase; font-size:14px; margin-bottom: 12px; }
+    h1 { font-size: clamp(36px, 6vw, 68px); line-height:1.05; margin:0 0 16px; font-weight: 800; }
+    h2 { color:var(--navy); font-size:36px; line-height:1.15; margin:0 0 20px; font-weight: 700; }
+    h3 { color:var(--navy); margin-bottom:12px; font-size: 22px; }
+    .subtitle { font-size:22px; max-width:850px; margin-bottom:32px; opacity: 0.95; font-weight: 300; }
+    .btn { display:inline-block; background:var(--gold); color:#fff; padding:16px 32px; border-radius:999px; text-decoration:none; font-weight:700; margin-right:12px; margin-top:12px; transition: background 0.2s; border: none; cursor: pointer; font-size: 16px; }
+    .btn:hover { background: #9c6c1d; }
+    .btn.secondary { background:#fff; color:var(--navy); border: 1px solid rgba(255,255,255,0.3); }
+    .btn.secondary:hover { background: var(--soft); }
+    
+    section { padding:80px 20px; border-bottom: 1px solid var(--line); }
+    .soft { background:var(--light); }
+    .cream { background:var(--cream); border-bottom: none; }
+    
+    .grid { display:grid; gap:24px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 40px; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px; box-shadow:0 10px 30px rgba(24,56,88,.06); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    
+    .callout { background:var(--cream); border-left:6px solid var(--gold); padding:32px; border-radius:12px; font-size:22px; font-weight:700; color:var(--navy); line-height: 1.4; }
+    .two { display:grid; gap:40px; grid-template-columns:1fr 1fr; align-items:start; }
+    
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { margin:12px 0; padding-left: 32px; position: relative; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 700; font-size: 1.2em; }
+    .checklist.neg li::before { content: "✕"; color: #c0392b; }
+    
+    .download-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+    .download-card { flex: 1; min-width: 250px; background: #fff; border: 1px solid var(--line); padding: 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; }
+    .download-card strong { display: block; margin-bottom: 4px; }
+    .download-card .file-info { font-size: 13px; color: #5c6875; }
+    .download-btn { background: var(--teal); color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; }
+    
+    form { background:#fff; border:1px solid var(--line); border-radius:18px; padding:40px; box-shadow:0 15px 40px rgba(0,0,0,.08); max-width: 800px; margin: 40px auto 0; }
+    .form-group { margin-bottom: 24px; }
+    label { display:block; font-weight:700; margin-bottom: 8px; color:var(--navy); font-size: 15px; }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+      width:100%; border:2px solid #e1e8ed; border-radius:10px; padding:14px; font-size:16px; transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--teal); outline: none; }
+    textarea { min-height:120px; resize: vertical; }
+    
+    .choices { margin-top: 8px; }
+    .choice-item { display: flex; align-items: flex-start; margin-bottom: 10px; cursor: pointer; }
+    .choice-item input { margin-top: 5px; margin-right: 12px; width: 18px; height: 18px; }
+    .choice-label { font-weight: 400; color: var(--ink); line-height: 1.4; font-size: 15px; }
+    
+    .note { font-size:14px; color:#5c6875; background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 3px solid #dee2e6; }
+    footer { background:var(--navy); color:#d9e7ee; padding:60px 20px; font-size:15px; }
+    footer strong { color: #fff; font-size: 18px; display: block; margin-bottom: 15px; }
+    footer a { color:#fff; text-decoration: underline; }
+    
+    .author-box { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 30px; font-size: 14px; opacity: 0.8; }
+
+    @media (max-width:900px) { .grid { grid-template-columns:1fr 1fr; } .two { grid-template-columns:1fr; } }
+    @media (max-width:600px) { .grid { grid-template-columns:1fr; } .btn { width: 100%; text-align: center; margin-right: 0; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Stafford's Next Generation</div>
+      <h1>One Taxpayer, One Stafford, One Future</h1>
+      <p class="subtitle">A community conversation about revenue, infrastructure, education, and quality of life in Stafford, Texas.</p>
+      <div class="header-btns">
+        <a href="#support" class="btn">Express Support for the Study</a>
+        <a href="#summary" class="btn secondary">Read the Executive Summary</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="summary">
+    <div class="wrap two">
+      <div>
+        <h2>Why this conversation matters now</h2>
+        <p>Stafford is moving toward an update of its 25-year <strong>Comprehensive Plan</strong>. A vision for land use, infrastructure, housing, transportation, and quality of life should also include a realistic fiscal sustainability and revenue modernization framework.</p>
+        <div style="background: #eef5f7; border-left: 4px solid var(--teal); padding: 20px; border-radius: 8px; margin: 20px 0; font-size: 15px;">
+          <strong>Official Context:</strong><br>
+          The City of Stafford has issued <strong>RFP 2026-001</strong> for a Comprehensive Plan Update and Zoning Ordinance rewrite. Proposals are due <strong>May 22, 2026</strong>. This initiative seeks to ensure the final plan includes a serious, funded component for revenue modernization.
+        </div>
+        <p>This initiative asks citizens and local leaders to support including that study in the Comprehensive Plan process to ensure our long-range vision is connected to a realistic funding model.</p>
+      </div>
+      <div class="callout">
+        Can Stafford modernize its public revenue structure in a way that protects taxpayers, strengthens infrastructure, supports education, preserves restricted funds, and improves quality of life for the next generation?
+      </div>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="wrap">
+      <h2>The One Taxpayer Principle</h2>
+      <p>Government may divide funds into separate categories, but residents and businesses experience the cost as one community. School taxes, city revenue, sales tax, public works, fees, special districts, infrastructure, and school quality all affect the same taxpayer.</p>
+      <div class="callout" style="background: #fff; border-left-color: var(--teal); margin-top: 30px;">
+        <strong>Every major public finance decision should ask:</strong> What is the total impact on the Stafford taxpayer, and what value is the taxpayer receiving in return?
+      </div>
+    </div>
+  </section>
+
+  <section id="framework">
+    <div class="wrap">
+      <h2>The Four-Part Framework</h2>
+      <p>The One Taxpayer, One Stafford, One Future concept is built around four connected areas of study proposed for the Comprehensive Plan Update:</p>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Sales Tax & Restricted Funds</h3>
+          <p>Review allocations of local sales tax (City, MST, and SEDC), evaluate voter intent, and study lawful realignment options to modernize funding for the next 25 years.</p>
+        </div>
+        <div class="card">
+          <h3>2. Public Works & Infrastructure</h3>
+          <p>Evaluate dedicated funding models for drainage, streets, sidewalks, and stormwater to address backlogs and sustain core quality-of-life obligations.</p>
+        </div>
+        <div class="card">
+          <h3>3. Education & Youth Partnership</h3>
+          <p>Study lawful ways for the City, SMSD, and SEDC to partner on workforce readiness, student success, joint-use facilities, and family quality-of-life investments.</p>
+        </div>
+        <div class="card">
+          <h3>4. Total Taxpayer Burden</h3>
+          <p>Model the impact of property tax, VATRE, and recapture to determine if a restructured model could reduce the total burden while remaining legally defensible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div>
+        <h2>What this IS</h2>
+        <ul class="checklist">
+          <li>A call for a neutral, professionally guided feasibility study.</li>
+          <li>A civic conversation for Stafford's next generation.</li>
+          <li>A taxpayer-centered planning model.</li>
+          <li>A proposed component of the Comprehensive Plan Update.</li>
+          <li>A request for factual revenue mapping and legal review.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>What this IS NOT</h2>
+        <ul class="checklist neg">
+          <li>Not a final tax plan or a tax increase proposal.</li>
+          <li>Not an attack on current leadership, SMSD, or SEDC.</li>
+          <li>Not a replacement for professional legal or financial review.</li>
+          <li>Not a predetermined outcome or political campaign document.</li>
+          <li>Not an official statement of any public body.</li>
+        </ul>
+        <div style="font-size: 13px; color: #7f8c8d; border-top: 1px solid var(--line); margin-top: 20px; padding-top: 15px;">
+          <strong>Ethics Guardrails:</strong> This initiative is issue-focused and does not use City, SMSD, or SEDC resources. It does not imply official endorsement and complies with civic transparency guidelines.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="downloads">
+    <div class="wrap">
+      <h2>Resources & Downloads</h2>
+      <p>Read the full details of the proposal and the executive summary prepared for community review.</p>
+      <div class="download-grid">
+        <div class="download-card">
+          <div>
+            <strong>Executive Summary</strong>
+            <span class="file-info">PDF / DOCX • Community Review Version</span>
+          </div>
+          <a href="01_Executive_Summary_One_Taxpayer_One_Stafford_One_Future.docx" class="download-btn">Download</a>
+        </div>
+        <div class="download-card">
+          <div>
+            <strong>Printable Survey</strong>
+            <span class="file-info">DOCX • Offline Support Form</span>
+          </div>
+          <a href="02_Community_Support_Survey_and_Respondent_Intake_Form.docx" class="download-btn">Download</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="support" class="cream">
+    <div class="wrap">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h2>Express Community Support</h2>
+        <p>Please share your connection to Stafford and respond to the review questions. Your feedback will help demonstrate community interest in including this study in the Comprehensive Plan Update.</p>
+      </div>
+
+      <form name="community-support-survey" method="POST" data-netlify="true" action="thank-you.html">
+        <input type="hidden" name="form-name" value="community-support-survey">
+        
+        <div class="form-group">
+          <label for="full_name">Full Name *</label>
+          <input type="text" id="full_name" name="full_name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-group">
+          <label for="address">Street Address or General Location in/near Stafford (Optional)</label>
+          <input type="text" id="address" name="address">
+        </div>
+
+        <div class="form-group">
+          <label for="affiliation">Organization / Business / School Affiliation (Optional)</label>
+          <input type="text" id="affiliation" name="affiliation">
+        </div>
+
+        <div class="form-group">
+          <label>Your Connection to Stafford (Check all that apply) *</label>
+          <div class="choices">
+            <label class="choice-item"><input type="checkbox" name="connection" value="resident"> <span class="choice-label">Stafford resident</span></label>
+            <label class="choice-item"><input type="checkbox" name="connection" value="property_owner"> <span class="choice-label">Stafford property owner</span></label>
+            <label class="choice-item"><input type="checkbox" name="connection" value="business_owner"> <span class="choice-label">Stafford business owner or representative</span></label>
+            <label class="choice-item"><input type="checkbox" name="connection" value="student_parent_family"> <span class="choice-label">SMSD parent, student, graduate, or family member</span></label>
+            <label class="choice-item"><input type="checkbox" name="connection" value="employee"> <span class="choice-label">Employed in Stafford</span></label>
+            <label class="choice-item"><input type="checkbox" name="connection" value="consumer"> <span class="choice-label">Consumer or regular patron of Stafford institutions</span></label>
+            <label class="choice-item"><input type="checkbox" name="connection" value="civic_leader"> <span class="choice-label">Civic, faith, nonprofit, or community leader</span></label>
+          </div>
+          <div style="margin-top: 10px;">
+            <label for="connection_other" style="font-weight: 400; font-size: 14px;">Other connection to Stafford:</label>
+            <input type="text" id="connection_other" name="connection_other">
+          </div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--line); margin: 30px 0;">
+
+        <div class="form-group">
+          <label>1. Do you believe Stafford needs a broader conversation about public finance?</label>
+          <select name="q1" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Need more information</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>2. Should revenue modernization be part of the Comprehensive Plan Update?</label>
+          <select name="q2" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Need more information</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>3. Do you believe city, school, infrastructure, and economic development issues are too often discussed separately?</label>
+          <select name="q3" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Need more information</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>4. What concerns you most? (Check all that apply)</label>
+          <div class="choices">
+            <label class="choice-item"><input type="checkbox" name="concerns" value="taxes"> <span class="choice-label">Taxes</span></label>
+            <label class="choice-item"><input type="checkbox" name="concerns" value="schools"> <span class="choice-label">Schools</span></label>
+            <label class="choice-item"><input type="checkbox" name="concerns" value="roads"> <span class="choice-label">Roads</span></label>
+            <label class="choice-item"><input type="checkbox" name="concerns" value="drainage"> <span class="choice-label">Drainage</span></label>
+            <label class="choice-item"><input type="checkbox" name="concerns" value="public_safety"> <span class="choice-label">Public safety</span></label>
+            <label class="choice-item"><input type="checkbox" name="concerns" value="economic_development"> <span class="choice-label">Economic development</span></label>
+            <label class="choice-item"><input type="checkbox" name="concerns" value="quality_of_life"> <span class="choice-label">Quality of life</span></label>
+            <label class="choice-item"><input type="checkbox" name="concerns" value="other"> <span class="choice-label">Other</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>5. Would you support a neutral feasibility study before any final proposal is made?</label>
+          <select name="q5" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Need more information</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="comments">Additional comments on your concerns</label>
+          <textarea id="comments" name="comments" placeholder="Share any other thoughts or concerns..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Support Statement</label>
+          <p style="font-size: 14px; margin-bottom: 12px; color: #5c6875;">I support asking that Stafford's Comprehensive Plan Update include a serious, neutral, professionally reviewed fiscal sustainability and revenue modernization study under the principle of One Taxpayer, One Stafford, One Future.</p>
+          <div class="choices">
+            <label class="choice-item"><input type="radio" name="support_choice" value="support" required> <span class="choice-label">I support the statement above.</span></label>
+            <label class="choice-item"><input type="radio" name="support_choice" value="need_info"> <span class="choice-label">I need more information before supporting.</span></label>
+            <label class="choice-item"><input type="radio" name="support_choice" value="do_not_support"> <span class="choice-label">I do not support the statement above.</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Consents & Privacy</label>
+          <div class="choices">
+            <label class="choice-item"><input type="checkbox" name="contact_consent" value="yes"> <span class="choice-label">You may contact me about future community meetings or updates on this issue.</span></label>
+            <label class="choice-item"><input type="checkbox" name="public_name_consent" value="yes"> <span class="choice-label">You may include my name on a general list of community supporters.</span></label>
+            <label class="choice-item"><input type="checkbox" name="keep_private" value="yes"> <span class="choice-label">Please keep my response private.</span></label>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Civic Disclaimer:</strong> This is for public education and community feedback. It is not an official City, SMSD, SEDC, or public-body survey; not a final legal or tax recommendation; and not a campaign fundraising document.
+        </div>
+
+        <button class="btn" type="submit" style="width: 100%; margin-top: 10px;">Submit Support Response</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="updates">
+    <div class="wrap">
+      <h2>Upcoming Conversations & Updates</h2>
+      <p>This initiative is currently in the community review phase. Stay tuned for dates regarding listening sessions and public submission deadlines related to the Comprehensive Plan Update.</p>
+      <div class="card" style="border-left: 4px solid var(--teal);">
+        <strong>Status: Soft Launch</strong><br>
+        Currently seeking feedback from 8-12 community leaders before broad public distribution.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="two">
+        <div>
+          <strong>One Taxpayer. One Stafford. One Future.</strong>
+          <p>A grassroots civic education initiative focused on Stafford's long-term fiscal health and quality of life.</p>
+          <p>&copy; 2026 Stafford Community Support Initiative</p>
+        </div>
+        <div>
+          <p><strong>Contact & Feedback</strong><br>
+          For questions or to get involved, please email: <a href="mailto:info@onetaxpayerstafford.org">info@onetaxpayerstafford.org</a></p>
+          <p><a href="#downloads">Download the full Concept Paper &raquo;</a></p>
+          <p style="font-size: 13px; margin-top: 20px;"><strong>Privacy Note:</strong> Information collected via the support form is used solely for the One Taxpayer initiative and will not be sold or used for commercial purposes. You may request to remain private on public supporter lists.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; line-height: 1.4; opacity: 0.7;">
+        <strong>Source Notes:</strong><br>
+        [1] City of Stafford, "Comprehensive Plan," adopted December 2, 2015.<br>
+        [2] City of Stafford, "RFP 2026-001: Comprehensive Plan Update," issued April 2026.<br>
+        [3] Texas Comptroller of Public Accounts, "Local Sales and Use Tax FAQ," regarding 8.25% maximum rate.<br>
+        [4] City of Stafford, "Tax Rates for Fiscal Year 2025-2026," identifying no municipal property tax.<br>
+        [5] City of Stafford, "Tax Structure," regarding local sales tax allocations.
+      </div>
+      
+      <div class="author-box">
+        Initiative proposed for community review by <strong>Arthur "AJ" Honoré</strong> – Public Funds Trustee; Former VP JP Morgan Chase Bank (Employee Relations & Tax-Exempt Corporate Trust Officer for $10B+ in projects); Former Stafford City Council Member; SEDC Board Member; Smart City Consultant (Ghana, West Africa); and civic engagement leader in Stafford since 1986.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
