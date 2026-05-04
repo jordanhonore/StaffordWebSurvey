@@ -78,7 +78,7 @@
       <h1>One Taxpayer, One Stafford, One Future</h1>
       <p class="subtitle">A community conversation about revenue, infrastructure, education, and quality of life in Stafford, Texas.</p>
       <div class="header-btns">
-        <a href="#support" class="btn">Express Support for the Study</a>
+        <a href="#support" class="btn">Take Survey Now</a>
         <a href="#summary" class="btn secondary">Read the Executive Summary</a>
       </div>
     </div>
@@ -190,12 +190,11 @@
   <section id="support" class="cream">
     <div class="wrap">
       <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <h2>Express Community Support</h2>
+        <h2>Community Feedback Survey</h2>
         <p>Please share your connection to Stafford and respond to the review questions. Your feedback will help demonstrate community interest in including this study in the Comprehensive Plan Update.</p>
       </div>
 
-      <form name="community-support-survey" method="POST" data-netlify="true" action="thank-you.html">
-        <input type="hidden" name="form-name" value="community-support-survey">
+      <form id="survey-form">
         
         <div class="form-group">
           <label for="full_name">Full Name *</label>
@@ -323,10 +322,65 @@
           <strong>Civic Disclaimer:</strong> This is for public education and community feedback. It is not an official City, SMSD, SEDC, or public-body survey; not a final legal or tax recommendation; and not a campaign fundraising document.
         </div>
 
-        <button class="btn" type="submit" style="width: 100%; margin-top: 10px;">Submit Support Response</button>
+        <button class="btn" type="submit" id="submit-btn" style="width: 100%; margin-top: 10px;">Submit Survey Now</button>
       </form>
     </div>
   </section>
+
+  <script>
+    const scriptURL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE';
+    const form = document.getElementById('survey-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      // Visual feedback
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Submitting...';
+      submitBtn.style.opacity = '0.7';
+
+      const formData = new FormData(form);
+      const data = {};
+      
+      // Handle simple fields
+      formData.forEach((value, key) => {
+        // Handle multi-select checkboxes (connection and concerns)
+        if (key === 'connection' || key === 'concerns') {
+          if (!data[key]) {
+            data[key] = [];
+          }
+          data[key].push(value);
+        } else {
+          data[key] = value;
+        }
+      });
+
+      // Join arrays into strings for the spreadsheet
+      if (data.connection) data.connection = data.connection.join(', ');
+      if (data.concerns) data.concerns = data.concerns.join(', ');
+
+      fetch(scriptURL, { 
+        method: 'POST', 
+        mode: 'no-cors', // Google Apps Script requires no-cors for simple POSTs
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        window.location.href = 'thank-you.html';
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('There was an error submitting the form. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit Survey Now';
+        submitBtn.style.opacity = '1';
+      });
+    });
+  </script>
 
   <section id="updates">
     <div class="wrap">
