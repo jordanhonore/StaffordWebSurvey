@@ -197,12 +197,12 @@
       <form id="survey-form">
         
         <div class="form-group">
-          <label for="full_name">Full Name *</label>
+          <label for="full_name">Full Name (or AKA if you desire anonymity) *</label>
           <input type="text" id="full_name" name="full_name" required>
         </div>
 
         <div class="form-group">
-          <label for="email">Email Address *</label>
+          <label for="email">Email Address (to receive follow-up and survey results) *</label>
           <input type="email" id="email" name="email" required>
         </div>
 
@@ -229,7 +229,7 @@
             <label class="choice-item"><input type="checkbox" name="connection" value="business_owner"> <span class="choice-label">Stafford business owner or representative</span></label>
             <label class="choice-item"><input type="checkbox" name="connection" value="student_parent_family"> <span class="choice-label">SMSD parent, student, graduate, or family member</span></label>
             <label class="choice-item"><input type="checkbox" name="connection" value="employee"> <span class="choice-label">Employed in Stafford</span></label>
-            <label class="choice-item"><input type="checkbox" name="connection" value="consumer"> <span class="choice-label">Consumer or regular patron of Stafford institutions</span></label>
+            <label class="choice-item"><input type="checkbox" name="connection" value="consumer"> <span class="choice-label">Consumer or regular patron of Stafford businesses or services</span></label>
             <label class="choice-item"><input type="checkbox" name="connection" value="civic_leader"> <span class="choice-label">Civic, faith, nonprofit, or community leader</span></label>
           </div>
           <div style="margin-top: 10px;">
@@ -241,7 +241,7 @@
         <hr style="border: none; border-top: 1px solid var(--line); margin: 30px 0;">
 
         <div class="form-group">
-          <label>1. Do you believe Stafford needs a broader conversation about public finance?</label>
+          <label>1. Do you believe Stafford needs a broader or more open conversation about public finance?</label>
           <select name="q1" required>
             <option value="" disabled selected>Select an option</option>
             <option>Yes</option>
@@ -251,7 +251,7 @@
         </div>
 
         <div class="form-group">
-          <label>2. Should revenue modernization be part of the Comprehensive Plan Update?</label>
+          <label>2. Should exploring revenue modernization be part of the Comprehensive Plan Update?</label>
           <select name="q2" required>
             <option value="" disabled selected>Select an option</option>
             <option>Yes</option>
@@ -261,7 +261,7 @@
         </div>
 
         <div class="form-group">
-          <label>3. Do you believe city, school, infrastructure, and economic development issues are too often discussed separately?</label>
+          <label>3. Do you believe city, school, infrastructure, and economic development issues are too often discussed separately and without community engagement efforts?</label>
           <select name="q3" required>
             <option value="" disabled selected>Select an option</option>
             <option>Yes</option>
@@ -271,7 +271,7 @@
         </div>
 
         <div class="form-group">
-          <label>4. What concerns you most? (Check all that apply)</label>
+          <label>4. What 3 issues concern you most? (Check all that apply)</label>
           <div class="choices">
             <label class="choice-item"><input type="checkbox" name="concerns" value="taxes"> <span class="choice-label">Taxes</span></label>
             <label class="choice-item"><input type="checkbox" name="concerns" value="schools"> <span class="choice-label">Schools</span></label>
@@ -285,7 +285,7 @@
         </div>
 
         <div class="form-group">
-          <label>5. Would you support a neutral feasibility study before any final proposal is made?</label>
+          <label>5. Would you support an aspirational 25-year comprehensive plan that strengthens Stafford infrastructure and quality of life if revenue adjustments were structured to protect residents and level fairness of the tax burden across all taxpayer types (i.e., commercial, consumers, and homeowners)?</label>
           <select name="q5" required>
             <option value="" disabled selected>Select an option</option>
             <option>Yes</option>
@@ -301,7 +301,7 @@
 
         <div class="form-group">
           <label>Support Statement</label>
-          <p style="font-size: 14px; margin-bottom: 12px; color: #5c6875;">I support asking that Stafford's Comprehensive Plan Update include a serious, neutral, professionally reviewed fiscal sustainability and revenue modernization study under the principle of One Taxpayer, One Stafford, One Future.</p>
+          <p style="font-size: 14px; margin-bottom: 12px; color: #5c6875;">I support asking City Council to include fiscal sustainability and a revenue modernization study in the updated Comprehensive Plan.</p>
           <div class="choices">
             <label class="choice-item"><input type="radio" name="support_choice" value="support" required> <span class="choice-label">I support the statement above.</span></label>
             <label class="choice-item"><input type="radio" name="support_choice" value="need_info"> <span class="choice-label">I need more information before supporting.</span></label>
@@ -313,7 +313,7 @@
           <label>Consents & Privacy</label>
           <div class="choices">
             <label class="choice-item"><input type="checkbox" name="contact_consent" value="yes"> <span class="choice-label">You may contact me about future community meetings or updates on this issue.</span></label>
-            <label class="choice-item"><input type="checkbox" name="public_name_consent" value="yes"> <span class="choice-label">You may include my name on a general list of community supporters.</span></label>
+            <label class="choice-item"><input type="checkbox" name="public_name_consent" value="yes"> <span class="choice-label">You may include my name as a supporter of a 25-year comprehensive plan that includes a fiscal sustainability study.</span></label>
             <label class="choice-item"><input type="checkbox" name="keep_private" value="yes"> <span class="choice-label">Please keep my response private.</span></label>
           </div>
         </div>
@@ -322,7 +322,7 @@
           <strong>Civic Disclaimer:</strong> This is for public education and community feedback. It is not an official City, SMSD, SEDC, or public-body survey; not a final legal or tax recommendation; and not a campaign fundraising document.
         </div>
 
-        <button class="btn" type="submit" id="submit-btn" style="width: 100%; margin-top: 10px;">Submit Survey Now</button>
+        <button class="btn" type="submit" id="submit-btn" style="width: 100%; margin-top: 10px;">Submit Support Response</button>
       </form>
     </div>
   </section>
@@ -370,7 +370,7 @@
         console.error('Error!', error.message);
         alert('There was an error submitting the form. Please try again.');
         submitBtn.disabled = false;
-        submitBtn.innerText = 'Submit Survey Now';
+        submitBtn.innerText = 'Submit Support Response';
         submitBtn.style.opacity = '1';
       });
     });
